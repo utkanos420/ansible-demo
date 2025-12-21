@@ -1,0 +1,9 @@
+---
+
+- hosts: dnf-servers
+  become: true
+  tasks:
+
+  - name: install apacke2 package
+    dnf:
+      name: apache2

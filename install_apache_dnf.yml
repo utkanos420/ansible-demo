@@ -15,7 +15,7 @@
 
   - name: add php support for apache
     dnf:
-      name: libapache2-mod-php
+      name: php
       state: latest
 
 

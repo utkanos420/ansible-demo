@@ -4,3 +4,7 @@
 
 [dnf-servers]
 192.168.56.104
+
+[apt-servers:vars]
+apache_package=apache2
+php_package=libapache2-mod-php

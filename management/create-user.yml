@@ -1,0 +1,34 @@
+---
+- name: create ansible user on all hosts
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: ensure ansible user
+      user:
+        name: ansible
+        shell: /bin/bash
+        create_home: yes
+
+    - name: create .ssh directory
+      file:
+        path: /home/ansible/.ssh
+        state: directory
+        owner: ansible
+        group: ansible
+        mode: '700'
+
+    - name: copy ansible management key
+      copy:
+        src: /home/ubuntu/.ssh/ansible.pub
+        dest: /home/ansible/.ssh/authorized_keys
+        owner: ansible
+        group: ansible
+        mode: '600'
+
+    - name: add ansible user to sudoers
+      copy:
+        dest: "/etc/sudoers.d/ansible"
+        content: "ansible ALL=(ALL) NOPASSWD: ALL"
+        mode: '440'
+

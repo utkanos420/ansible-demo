@@ -1,0 +1,22 @@
+---
+
+  - name: Ensure Docker is active
+    systemd:
+      name: docker
+      enabled: yes
+      state: started
+
+  - name: Ensure group if "docker" group exists
+    ansible.builtin.group:
+      name: docker
+      state: present
+
+  - name: Add ansible to docker group
+    user:
+      name: ansible
+      groups: docker
+      append: yes
+
+  - name: Start hello world container
+    command: "docker run --name first-container hello-world"
+

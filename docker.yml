@@ -1,0 +1,10 @@
+---
+
+- name: Install and configure Docker on web servers
+  hosts: web-servers
+  gather_facts: yes
+  become: yes
+  become_method: sudo
+
+  roles:
+    - docker 

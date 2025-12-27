@@ -1,0 +1,8 @@
+[web-servers]
+192.168.0.105
+
+[db-servers]
+192.168.0.106
+
+[file-servers]
+192.168.0.107 ansible_user=redos

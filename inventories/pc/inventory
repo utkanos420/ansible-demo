@@ -6,3 +6,6 @@
 
 [file-servers]
 192.168.0.107
+
+[test-servers]
+192.168.0.105

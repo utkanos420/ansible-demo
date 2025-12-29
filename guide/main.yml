@@ -28,6 +28,37 @@
           - apache2
           - libapache2-mod-php
 
+    - name: copy index.html file for site
+      copy:
+        src: /home/ubuntu/ansible-demo/guide/index.html
+        dest: /var/www/html/index.html
+        owner: root
+        group: root
+        mode: 0644
+
+
+- hosts: test-servers
+  become: yes
+  become_method: sudo
+  tasks:
+
+  - name: install unzip
+    package:
+      name: unzip
+
+  - name: download terraform
+    get_url:
+      url: https://releases.hashicorp.com/terraform/0.12.28/terraform_0.12.28_linux_amd64.zip
+      dest: /tmp/terraform.zip
+      mode: 0644
+
+  - name: install terraform
+    unarchive:
+      src: /tmp/terraform.zip
+      dest: /usr/local/bin
+      remote_src: yes
+      mode: 0755
+
 
 - hosts: db-servers
   become: yes

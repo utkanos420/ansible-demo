@@ -20,7 +20,7 @@ I use virtual machines to learn Ansible:
 | Ansible host 1 | Ubuntu Server 24.04 | Ansible host for working with Ansible                  | Ansible |
 | Ansible host 2 | Ubuntu Server 24.04 | Ansible host for working with Ansible                  | Ansible |
 | Ansible host 3 | RedOS 8 / RedHat 8  | Ansible host for working with Ansible and other distro | Ansible |
-
+| Ansible host 4 | Ubuntu Server 24.04 | Ansible hosts for testing Ansible funcs                | Ansible |
 ## Project Progress
 
 - [x] Install and set up Ansible

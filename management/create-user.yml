@@ -2,11 +2,13 @@
 - name: create ansible user on all hosts
   hosts: all
   become: yes
+  become_method: sudo
 
   tasks:
     - name: ensure ansible user
       user:
         name: ansible
+        groups: "root"
         shell: /bin/bash
         create_home: yes
 

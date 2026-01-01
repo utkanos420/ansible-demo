@@ -2,7 +2,6 @@
 
 - include_tasks: prepare_hosts.yml
 
-
 - include_tasks: configure_db.yml
   when: "'db-servers' in group_names"
 
@@ -11,5 +10,3 @@
 
 - include_tasks: configure_samba.yml
   when: "'file-servers' in group_names"
-
-

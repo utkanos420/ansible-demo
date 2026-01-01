@@ -1,0 +1,20 @@
+---
+
+  - name: Install samba package
+    package:
+      name: samba
+      state: latest
+
+  - name: Ensure samba is running
+    service:
+      name: smb
+      state: started
+      enabled: yes
+
+  - name: Ensure samba module is running
+    service:
+      name: nmb
+      state: started
+      enabled: yes
+
+

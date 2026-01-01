@@ -20,7 +20,7 @@
 
   - name: Change default Apache web page
     copy:
-      src: /home/ubuntu/ansible-demo/guide/index.html
+      src: /home/ubuntu/ansible-demo/roles/guide/files/index.html
       dest: /var/www/html/index.html
       owner: root
       group: root

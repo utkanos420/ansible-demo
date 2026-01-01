@@ -21,6 +21,17 @@ I use virtual machines to learn Ansible:
 | Ansible host 2 | Ubuntu Server 24.04 | Ansible host for working with Ansible                  | Ansible |
 | Ansible host 3 | RedOS 8 / RedHat 8  | Ansible host for working with Ansible and other distro | Ansible |
 | Ansible host 4 | Ubuntu Server 24.04 | Ansible hosts for testing Ansible funcs                | Ansible |
+
+## Structure
+
+| Directory    | Purpose                                                                                |
+| ------------ | -------------------------------------------------------------------------------------- |
+| examples     | Test and unstable playbooks I make while learning from guides and tutorials            |
+| installation | Reusable playbooks for installing software on hosts                                    |
+| management   | Reusable playbooks for configuring hosts for different tasks                           |
+| inventories  | Hosts configuration files (PC, laptop) used for managing virtual machines with Ansible |
+| roles        | More complex stack of Ansible roles for running multiple tasks together                |
+
 ## Project Progress
 
 - [x] Install and set up Ansible
@@ -33,6 +44,7 @@ I use virtual machines to learn Ansible:
 - [ ] Learn best practices
 - [ ] Deploy some project using Docker and Ansible techs
 - [ ] Watch an Ansible course till the end
+- [ ] Add some scripts for automatic healthchecking hosts
 - [ ] Find more material to learn about Ansible
 
 ## Docs

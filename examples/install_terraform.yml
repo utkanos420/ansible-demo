@@ -1,0 +1,37 @@
+---
+
+- hosts: test-servers
+  become: true
+  become_method: sudo
+  tasks:
+
+    - name: add GPG key
+      get_url:
+        url: https://apt.releases.hashicorp.com/gpg
+        dest: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+        mode: 0644
+
+    - name: convert key
+      command:
+        cmd: gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+      args:
+        creates: /usr/share/keyrings/hashicorp-archive-keyring.gpg
+
+    - name: add HashiCorp repository
+      apt_repository:
+        repo: deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com {{ ansible_distribution_release }} stable
+        filename: hashicorp
+        state: present
+
+    - name: install terraform
+      apt:
+        name: terraform
+        state: present
+        update_cache: yes
+
+    - name: enable terraform
+      systemd:
+        name: terraform
+        enabled: yes
+        state: stated
+

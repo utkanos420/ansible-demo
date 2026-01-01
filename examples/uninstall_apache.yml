@@ -1,0 +1,25 @@
+---
+
+- hosts: all
+  become: true
+  tasks:
+
+
+  - name: uninstall apache2 and php packages for Ubuntu
+    apt:
+      name:
+        - apache2
+        - libapache2-mod-php
+      state: absent
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+
+  - name: uninstall apache2 and php packages for RedHat
+    dnf:
+      name:
+        - httpd
+        - php
+      state: absent
+      update_cache: yes
+    when: ansible_distribution == "RedHat"

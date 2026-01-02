@@ -43,9 +43,9 @@ I use virtual machines to learn Ansible:
 - [ ] Add deployment.md file with some instructions
 - [ ] Learn best practices
 - [ ] Deploy some project using Docker and Ansible techs
-- [ ] Watch an Ansible course till the end
+- [x] Watch an Ansible course till the end
 - [ ] Add some scripts for automatic healthchecking hosts
-- [ ] Find more material to learn about Ansible
+- [x] Find more material to learn about Ansible
 
 ## Docs
 

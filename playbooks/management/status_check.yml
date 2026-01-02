@@ -1,0 +1,48 @@
+---
+
+- name: Check apache2 service status (web-servers)
+  tags: apache2
+  hosts: web-servers
+  gather_facts: yes
+  tasks:
+    - name: Check service status
+      command: systemctl status "{{ item }}"
+      with_items:
+        - apache2
+      register: default
+      ignore_errors: yes
+    - name: Show result
+      debug:
+        var: default
+
+- name: Check mariadb service status (db-servers)
+  tags: mariadb,mysql
+  hosts: db-servers
+  gather_facts: yes
+  tasks:
+    - name: Check service status
+      command: systemctl status "{{ item }}"
+      with_items:
+        - mariadb
+        - mysql
+      register: default
+      ignore_errors: yes
+    - name: Show result
+      debug:
+        var: default
+
+- name: Check samba service status (file-servers)
+  tags: samba
+  hosts: file-servers
+  gather_facts: yes
+  tasks:
+    - name: Check service status
+      command: systemctl status "{{ item }}"
+      with_items:
+        - nmb
+        - smb
+      register: default
+      ignore_errors: yes
+    - name: Show result
+      debug:
+        var: default

@@ -1,0 +1,65 @@
+---
+
+- name: Check apache2 service status (web-servers)
+  tags: apache2
+  hosts: web-servers
+  gather_facts: yes
+  tasks:
+    - name: Check service status
+      systemd:
+        name: apache2
+        state: started
+      check_mode: yes
+      ignore_errors: yes
+      register: apache_status
+    - name: Show service status
+      debug:
+        msg: "Apache2 is {{ apache_status.status.ActiveState }}"
+
+
+- name: Check mariadb service status (db-servers)
+  tags: mariadb,mysql
+  hosts: db-servers
+  gather_facts: yes
+  tasks:
+    - name: Check services status
+      systemd:
+        name: "{{ item }}"
+        state: started
+      loop:
+        - mariadb
+        - mysql
+      loop_control:
+        label: "{{ item }}"
+      check_mode: yes
+      ignore_errors: yes
+      register: db_status
+    - name: Show services status
+      debug:
+        msg: "{{ item }} is {{ item.status.ActiveState }}"
+      loop:
+        "{{ db_status.results}}"
+
+
+- name: Check samba service status (file-servers)
+  tags: samba
+  hosts: file-servers
+  gather_facts: yes
+  tasks:
+    - name: Check services status
+      systemd:
+        name: "{{ item }}"
+        state: started
+      loop:
+        - nmb
+        - smb
+      loop_control:
+        label: "{{ item }}"
+      check_mode: yes
+      ignore_errors: yes
+      register: samba_status
+    - name: Show services status
+      debug:
+        msg: "{{ item }} is {{ item.status.ActiveState }}"
+      loop:
+        "{{ samba_status.results }}"

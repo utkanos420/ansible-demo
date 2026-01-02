@@ -26,9 +26,7 @@ I use virtual machines to learn Ansible:
 
 | Directory    | Purpose                                                                                |
 | ------------ | -------------------------------------------------------------------------------------- |
-| examples     | Test and unstable playbooks I make while learning from guides and tutorials            |
-| installation | Reusable playbooks for installing software on hosts                                    |
-| management   | Reusable playbooks for configuring hosts for different tasks                           |
+| playbooks    | All ansible playbooks for configuring and managing hosts                               |
 | inventories  | Hosts configuration files (PC, laptop) used for managing virtual machines with Ansible |
 | roles        | More complex stack of Ansible roles for running multiple tasks together                |
 

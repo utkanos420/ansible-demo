@@ -18,5 +18,5 @@
       append: yes
 
   - name: Start hello world container
-    command: "docker run --name first-container hello-world"
+    command: "docker ps"
 

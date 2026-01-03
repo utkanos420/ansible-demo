@@ -1,9 +1,0 @@
----
-
-- name: Guide configuration
-  hosts: all
-  become: yes
-  become_method: sudo
-
-  roles:
-    - guide

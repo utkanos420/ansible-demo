@@ -30,7 +30,7 @@
 
     - name: copy index.html file for site
       copy:
-        src: /home/ubuntu/ansible-demo/guide/index.html
+        src: /home/ubuntu/ansible-demo/roles/apache/files/index.html
         dest: /var/www/html/index.html
         owner: root
         group: root
